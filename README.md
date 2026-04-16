@@ -26,7 +26,7 @@ Simulador de plataforma de áudio em Java chamada "Allan's Music" que permite a 
 
 
 ## Como executar
-1. Baixe os arquivos e abra em uma IDE (Ambiente de desenvolvimento integrado) que permita o uso da a linguagem Java
+1. Baixe os arquivos e abra em uma IDE (Ambiente de desenvolvimento integrado) que permita o uso da linguagem Java
 2. Certifique que o JDK (Kit de desenvolvimento Java) esteja em sua máquina e que tenha o JDK 25
 3. Abra o pacote em seu IDE e execute o arquivo 'Principal.java', localizado na pasta 'src'
 4. Desfrute do programa :)
