@@ -11,12 +11,19 @@ Simulador de plataforma de áudio em Java chamada "Allan's Music" que permite a 
 
 ## Estrutura do projeto
 └── br/com/alura/AllansAudio/
+
 ├── Audio.java (abstract) ← Superclasse
+
 ├── Painel.java (interface) ← Interface
+
 ├── Musica.java ← Subclasse
+
 ├── Podcast.java ← Subclasse
+
 ├── Audiolivros.java ← Subclasse
+
 └── Principal.java ← Executável
+
 
 ## Como executar
 1. Baixe os arquivos e abra em uma IDE (Ambiente de desenvolvimento integrado) que permita o uso da a linguagem Java
