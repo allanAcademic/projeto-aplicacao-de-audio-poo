@@ -44,10 +44,11 @@ Simulador de plataforma de áudio em Java chamada "Allan's Music" que permite a 
 - Herança e polimorfismo
 - Instanciação de objetos
 - Consolidação de laços e estruturas de decisão
+-  Armazenamento de objetos polimórficos em ArrayList<Audio>
   
 
 ## Status
-Em desenvolvimento — próximas implementações: armazenamento em listas, interface gráfica com Swing
+Em desenvolvimento — implementado: armazenamento em ArrayList. Próximas melhorias: interface gráfica com Swing
 
 ## Autor
 Allan Chrystal - GitHub: @allanAcademic
