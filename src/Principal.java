@@ -30,7 +30,7 @@ public class Principal{
         boolean i = true;
 
         //Interação com usuário para escolha de qual objeto ele quer criar
-        while (i == true) {
+        while (i) {
             j = true;//renovação do laço para true caso o usuário faça mais de um objeto e use o botão sair, possibilitando o menu do objeto funcionar
             System.out.println("""
                     Boas-vindas ao Allan's Music!
@@ -38,6 +38,7 @@ public class Principal{
                     [1] - Adicionar música
                     [2] - Adicionar podcast
                     [3] - Adicionar audiolivro
+                    [5] - Ver biblioteca completa
                     [4] - Sair do programa.
                     """);
             //armazenamento da escolha
@@ -57,12 +58,7 @@ public class Principal{
                     autoria = scanner.nextLine();
                     ((Musica) escolha1).setArtista(autoria);
 
-                    System.out.println("A música compõem um album, EP ou mixtape? (S/N)");
-                    respostaIf = scanner.nextLine();
-                    while (!respostaIf.equalsIgnoreCase("S") && !respostaIf.equalsIgnoreCase("N")) { //Uso do while para filtrar e validar apenas os caracteres N ou S
-                        System.out.println("Digite um caractere válido (S/N): S = Sim, N = Não");
-                        respostaIf = scanner.nextLine();
-                    }
+                    respostaIf = lerSimOuNao(scanner, "A música compõem um album, EP ou mixtape? (S/N)");
                     if (respostaIf.equalsIgnoreCase("S")) { //uso de condicionais para diferentes trechos de códigos
                         System.out.println("Informe o nome do álbum/EP/Mixtape: ");
                         String resposta = scanner.nextLine();
@@ -89,12 +85,7 @@ public class Principal{
                     }
                     ((Musica) escolha1).setClassificacao(pegaClassificacao);
                     scanner.nextLine();
-                    System.out.println("A música está entre as curtidas? (S/N)");
-                    respostaIf = scanner.nextLine();
-                    while (!respostaIf.equalsIgnoreCase("S") && !respostaIf.equalsIgnoreCase("N")) { //Uso do while para filtrar e validar apenas os caracteres N ou S
-                        System.out.println("Digite um caractere válido (S/N): S = Sim, N = Não");
-                        respostaIf = scanner.nextLine();
-                    }
+                    respostaIf = lerSimOuNao(scanner, "A música está entre as curtidas? (S/N)");
                     if (respostaIf.equalsIgnoreCase("S")) {
                         ((Musica) escolha1).setCurtido(true);
                     } else {
@@ -111,7 +102,7 @@ public class Principal{
                     scanner.nextLine();
                     //Após finalizado os atributos, da a opção de visualização e de usar os métodos
                     ((Painel) escolha1).painelInformacoes();
-                    while (j == true) {//Criação de um while para que o trecho de código repita até o usuário pedir para finalizar
+                    while (j) {//Criação de um while para que o trecho de código repita até o usuário pedir para finalizar
                         System.out.printf("""
                                 Menu de %s
                                 O que gostaria de fazer?
@@ -135,7 +126,7 @@ public class Principal{
                                 ((Musica) escolha1).sugestoesSemelhantes();
                                 break;
                             case 4:
-                                if(escolha1.getCurtido() == true){
+                                if(escolha1.getCurtido()){
                                     escolha1.descurtir();
                                 }else {
                                     escolha1.curtir();
@@ -167,12 +158,7 @@ public class Principal{
                     String arg1 = scanner.nextLine();
                     ((Podcast) escolha1).setTema(arg1);
 
-                    System.out.println("O episódio contém versão em vídeo? (S/N)");
-                    respostaIf = scanner.nextLine();
-                    while (!respostaIf.equalsIgnoreCase("S") && !respostaIf.equalsIgnoreCase("N")) {
-                        System.out.println("Digite um caractere válido (S/N): S = Sim, N = Não");
-                        respostaIf = scanner.nextLine();
-                    }
+                    respostaIf = lerSimOuNao(scanner, "O episódio contém versão em vídeo? (S/N)");
                     if (respostaIf.equalsIgnoreCase("S")) {
                         ((Podcast) escolha1).setContemVideo(true);
                     } else {
@@ -198,12 +184,7 @@ public class Principal{
                     ((Podcast) escolha1).setClassificacao(pegaClassificacao);
                     scanner.nextLine();
 
-                    System.out.println("É um dos episódios curtidos pelo usuário? ");
-                    respostaIf = scanner.nextLine();
-                    while (!respostaIf.equalsIgnoreCase("S") && !respostaIf.equalsIgnoreCase("N")) {
-                        System.out.println("Digite um caractere válido (S/N): S = Sim, N = Não");
-                        respostaIf = scanner.nextLine();
-                    }
+                    respostaIf = lerSimOuNao(scanner, "É um dos episódios curtidos pelo usuário? ");
                     if (respostaIf.equalsIgnoreCase("S")) {
                         ((Podcast) escolha1).setCurtido(true);
                     } else {
@@ -220,7 +201,7 @@ public class Principal{
                     scanner.nextLine();
 
                     ((Painel) escolha1).painelInformacoes();
-                    while (j == true) {
+                    while (j) {
                         System.out.printf("""
                                 Menu de %s
                                 O que gostaria de fazer?
@@ -243,7 +224,7 @@ public class Principal{
                                 ((Podcast) escolha1).versaoVideo();
                                 break;
                             case 4:
-                                if(escolha1.getCurtido() == true){
+                                if(escolha1.getCurtido()){
                                     escolha1.descurtir();
                                 }else {
                                     escolha1.curtir();
@@ -280,12 +261,7 @@ public class Principal{
                     ((Audiolivros) escolha1).setCapituloAtual(arg2);
                     scanner.nextLine();
 
-                    System.out.println("O audioLivro participa de alguma coleção? (S/N) ");
-                    respostaIf = scanner.nextLine();
-                    while (!respostaIf.equalsIgnoreCase("S") && !respostaIf.equalsIgnoreCase("N")) {
-                        System.out.println("Digite um caractere válido (S/N): S = Sim, N = Não");
-                        respostaIf = scanner.nextLine();
-                    }
+                    respostaIf = lerSimOuNao(scanner, "O audioLivro participa de alguma coleção? (S/N) ");
                     if (respostaIf.equalsIgnoreCase("S")) {
                         System.out.println("Qual é o nome da coleção? ");
                         respostaIf = scanner.nextLine();
@@ -317,12 +293,7 @@ public class Principal{
                     ((Audiolivros) escolha1).setClassificacao(pegaClassificacao);
                     scanner.nextLine();
 
-                    System.out.println("É um dos audioLivros curtidos pelo usuário? ");
-                    respostaIf = scanner.nextLine();
-                    while (!respostaIf.equalsIgnoreCase("S") && !respostaIf.equalsIgnoreCase("N")) {
-                        System.out.println("Digite um caractere válido (S/N): S = Sim, N = Não");
-                        respostaIf = scanner.nextLine();
-                    }
+                    respostaIf = lerSimOuNao(scanner, "É um dos audioLivros curtidos pelo usuário? ");
                     if (respostaIf.equalsIgnoreCase("S")) {
                         ((Audiolivros) escolha1).setCurtido(true);
                     } else {
@@ -338,13 +309,7 @@ public class Principal{
                     ((Audiolivros) escolha1).setAno(pegaAno);
                     scanner.nextLine();
 
-                    System.out.println("O audioLivro é pago (S/N)");
-                    respostaIf = scanner.nextLine();
-                    ;
-                    while (!respostaIf.equalsIgnoreCase("S") && !respostaIf.equalsIgnoreCase("N")) {
-                        System.out.println("Digite um caractere válido (S/N): S = Sim, N = Não");
-                        respostaIf = scanner.nextLine();
-                    }
+                    respostaIf = lerSimOuNao(scanner, "O audioLivro é pago (S/N)");
                     if (respostaIf.equalsIgnoreCase("S")) {
                         System.out.println("Informe o preço: ");
                         double arg4 = scanner.nextDouble();
@@ -358,7 +323,7 @@ public class Principal{
                     }
 
                     ((Painel) escolha1).painelInformacoes();
-                    while (j == true) {
+                    while (j) {
                         System.out.printf("""
                                 Menu de %s
                                 O que gostaria de fazer?
@@ -397,7 +362,7 @@ public class Principal{
                                 System.out.println(((Audiolivros) escolha1).progresso());
                                 break;
                             case 4:
-                                if(escolha1.getCurtido() == true){
+                                if(escolha1.getCurtido()){
                                     escolha1.descurtir();
                                 }else {
                                     escolha1.curtir();
@@ -418,11 +383,35 @@ public class Principal{
                     System.out.println("Saindo...");
                     i = false;
                     break;
+                case 5: // Nova opção para listar a biblioteca
+                    System.out.println("--- SUA BIBLIOTECA COMPLETA ---");
+                    System.out.println("Você tem " + biblioteca.size() + " áudios na biblioteca.\n");
+                    if (biblioteca.isEmpty()) {
+                        System.out.println("Nenhum item adicionado ainda.");
+                    } else {
+                        for (Audio audio : biblioteca) {
+                            // Graças à Melhoria 4, o println chama automaticamente o toString() de cada objeto!
+                            System.out.println(audio);
+                            System.out.println("----------------------------------------");
+                        }
+                    }
+                    break;
                 default:
                     System.out.println("Informe um número de 1-4");
             }
 
 
         }
+    }
+    private static String lerSimOuNao(Scanner scanner, String mensagem) {
+        System.out.println(mensagem);
+        String entrada = scanner.nextLine().trim();
+
+        while (!entrada.equalsIgnoreCase("S") && !entrada.equalsIgnoreCase("N")) {
+            System.out.println("Digite um caractere válido (S/N): S = Sim, N = Não");
+            entrada = scanner.nextLine().trim();
+        }
+
+        return entrada;
     }
 }

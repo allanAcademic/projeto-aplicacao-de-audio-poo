@@ -80,11 +80,12 @@ public class Audiolivros extends Audio implements Painel{
 
                 """,getTitulo(), getDuracao(), getAutor(), getCapitulos());
     }
+    // Substitua o painelInformacoes por estes dois:
     @Override
-    public void painelInformacoes(){
-        System.out.printf("""
+    public String toString() {
+        return String.format("""
                 
-                INFORMAÇÕES DETALHADAS:
+                INFORMAÇÕES DETALHADAS (AUDIOLIVRO):
                 Título: %s
                 Autor: %s
                 Duração total: %.1f
@@ -98,12 +99,17 @@ public class Audiolivros extends Audio implements Painel{
                 Curtido: %s
                 
                 
-                """,getTitulo(), getAutor(), getDuracao(), getCapitulos(), getGenero(), getColecao(), getAno(), getPreco(), getClassificacao(), getTotalReproducoes(), eCurtido() );
+                """, getTitulo(), getAutor(), getDuracao(), getCapitulos(), getGenero(), getColecao(), getAno(), getPreco(), getClassificacao(), getTotalReproducoes(), eCurtido());
+    }
+
+    @Override
+    public void painelInformacoes() {
+        System.out.print(this);
     }
 
     //Métodos exclusivos
     public double progresso(){
-        double i =  (double) (getCapituloAtual() / getCapitulos()) * 100;
-        return i;
+        double progresso = ((double) getCapituloAtual() / getCapitulos()) * 100;
+        return progresso;
     }
 }

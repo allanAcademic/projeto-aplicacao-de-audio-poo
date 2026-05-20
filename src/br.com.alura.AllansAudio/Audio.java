@@ -5,8 +5,8 @@ public abstract class Audio {
     private String titulo;
     private double duracao;
     private int totalReproducoes;
-    public int classificacao;
-    public int ano;
+    private int classificacao;
+    private int ano;
     private boolean curtido = false;
 
 

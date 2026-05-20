@@ -50,24 +50,29 @@ public class Podcast extends Audio implements Painel {
      
                 """,getTitulo(), getDuracao(), getCanal());
     }
+    // Substitua o painelInformacoes por estes dois:
     @Override
-    public void painelInformacoes(){
-        System.out.printf("""
+    public String toString() {
+        return String.format("""
                 
                 
-                INFORMAÇÕES DETALHADAS:
+                INFORMAÇÕES DETALHADAS (PODCAST):
                 Título: %s
                 Duração:%.1f
                 Canal: %s
                 Tema: %s
-                Canal: %s
                 Ano: %d
                 Total de reproduções: %d
                 Avaliacão: %d
                 Curtido: %s
                 
                 
-                """,getTitulo(), getDuracao(), getCanal(), getTema(), getCanal(), getAno(), getTotalReproducoes(), getClassificacao(), eCurtido());
+                """, getTitulo(), getDuracao(), getCanal(), getTema(), getAno(), getTotalReproducoes(), getClassificacao(), eCurtido());
+    }
+
+    @Override
+    public void painelInformacoes() {
+        System.out.print(this);
     }
 
     //Métodos exclusivos

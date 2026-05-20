@@ -49,10 +49,12 @@ public class Musica extends Audio implements Painel{
                 """,getTitulo(), getDuracao(), getArtista(), getAlbum());
     }
     @Override
-    public void painelInformacoes(){
-        System.out.printf("""
+// Substitua o painelInformacoes por estes dois:
+    @Override
+    public String toString() {
+        return String.format("""
                 
-                INFORMAÇÕES DETALHADAS:
+                INFORMAÇÕES DETALHADAS (MÚSICA):
                 Título: %s
                 Duração:%.1f
                 Artista: %s
@@ -63,7 +65,12 @@ public class Musica extends Audio implements Painel{
                 Curtido: %s
                 
                 
-                """,getTitulo(), getDuracao(), getArtista(), getAlbum(), getAno(), getClassificacao(), getTotalReproducoes(), eCurtido() );
+                """, getTitulo(), getDuracao(), getArtista(), getAlbum(), getAno(), getClassificacao(), getTotalReproducoes(), eCurtido());
+    }
+
+    @Override
+    public void painelInformacoes() {
+        System.out.print(this);
     }
 
     //Métodos exclusivos
