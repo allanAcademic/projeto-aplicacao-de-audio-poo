@@ -1,9 +1,10 @@
 # projeto-aplicacao-de-audio-poo
 Projeto simulador de player de áudio em Java com músicas, podcasts e audiolivros — projeto de conclusão de curso de Java POO da Alura. 
+
 # Sistema de player de Audio: Allan's Music
 
 ## Sobre o projeto
-Simulador de plataforma de áudio em Java chamada "Allan's Music" que permite a criação e implementação de músicas, podcasts e audiolivros. Além disso, oferece um menu inicial e personalizado para cada tipo de áudio com opções para visualização de informações, reprodução do áudio (simulado), adicionar ou excluir áudio dos favoritos e um método exclusivo para cada tipo: para músicas, encontrar músicas semelhantes (como uma recomendação); para podcast, visualizar versão em vídeo; para audioLivro verificar progresso (ao medir capitulos totais e capitulo atual).
+Simulador de plataforma de áudio em Java chamada "Allan's Music" que permite a criação e implementação de músicas, podcasts e audiolivros. Além disso, oferece um menu inicial e personalizado para cada tipo de áudio com opções para visualaização de informações, reprodução do áudio (simulado), adicionar ou excluir áudio dos favoritos e um método exclusivo para cada tipo: para músicas, encontrar músicas semelhantes (como uma recomendação); para podcast, visualizar versão em vídeo; para audioLivro verificar progresso (ao medir capitulos totais e capitulo atual).
 
 ## Tecnologias
 - Java
@@ -11,19 +12,12 @@ Simulador de plataforma de áudio em Java chamada "Allan's Music" que permite a 
 
 ## Estrutura do projeto
 └── br/com/alura/AllansAudio/
-
-├── Audio.java (abstract) ← Superclasse
-
-├── Painel.java (interface) ← Interface
-
-├── Musica.java ← Subclasse
-
-├── Podcast.java ← Subclasse
-
-├── Audiolivros.java ← Subclasse
-
-└── Principal.java ← Executável
-
+    ├── Audio.java (abstract) ← Superclasse
+    ├── Painel.java (interface) ← Interface
+    ├── Musica.java ← Subclasse
+    ├── Podcast.java ← Subclasse
+    ├── Audiolivros.java ← Subclasse
+    └── Principal.java ← Executável
 
 ## Como executar
 1. Baixe os arquivos e abra em uma IDE (Ambiente de desenvolvimento integrado) que permita o uso da linguagem Java
@@ -36,6 +30,8 @@ Simulador de plataforma de áudio em Java chamada "Allan's Music" que permite a 
 - Escolha de objeto e formulação de seus atributos pelo usuário
 - Visualização de atributos, informações e simulação de reprodução
 - Métodos exclusivos que simulam capacidades de cada tipo de áudio
+- Validação robusta de entradas de dados do usuário (Sim/Não) com tratamento de respostas inválidas
+- Listagem completa e detalhada de todos os itens contidos na biblioteca através do menu principal
 
 ## O que aprendi
 - Uso de interfaces
@@ -44,11 +40,12 @@ Simulador de plataforma de áudio em Java chamada "Allan's Music" que permite a 
 - Herança e polimorfismo
 - Instanciação de objetos
 - Consolidação de laços e estruturas de decisão
--  Armazenamento de objetos polimórficos em ArrayList<Audio>
-  
+- Armazenamento de objetos polimórficos em ArrayList<Audio>
+- Sobrescrita do método nativo toString() para formatação e exibição limpa de dados textuais
+- Manipulação e iteração de coleções dinâmicas para exibição de relatórios ao usuário
 
 ## Status
-Em desenvolvimento — implementado: armazenamento em ArrayList. Próximas melhorias: interface gráfica com Swing
+Em desenvolvimento — implementado: armazenamento em ArrayList, sobreescrita de toString e listagem da biblioteca. Próximas melhorias: interface gráfica com Swing
 
 ## Autor
 Allan Chrystal - GitHub: @allanAcademic
